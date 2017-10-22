@@ -20,7 +20,8 @@ public class AccountTest {
     @Mock
     private Statements statements;
 
-    @Mock Printer printer;
+    @Mock
+    Printer printer;
 
     @Before
     public void init() {
@@ -52,7 +53,7 @@ public class AccountTest {
     }
 
     @Test
-    public void should_printStatements() throws Exception {
+    public void should_print_statements() throws Exception {
         account.printStatements(printer);
         verify(statements).printTo(printer);
     }
