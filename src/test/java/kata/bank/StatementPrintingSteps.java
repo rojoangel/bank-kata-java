@@ -15,12 +15,15 @@ public class StatementPrintingSteps {
 
     @Before
     public void create_account() {
-        account = new Account();
+        account = new Account(
+                new DateProvider(),
+                new Statements()
+        );
     }
 
     @Given("^(?:a client )?deposits (\\d+) on (.*?)$")
     public void a_client_deposits_on(int amount, Date date) throws Throwable {
-        account.deposit(amount, date);
+        account.deposit(amount);
     }
 
     @Given("^withdraws (\\d+) on (.*?)$")

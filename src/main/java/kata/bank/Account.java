@@ -3,7 +3,18 @@ package kata.bank;
 import java.util.Date;
 
 public class Account {
-    public void deposit(double amount, Date date) {
+    private DateProvider dateProvider;
+    private Statements statements;
 
+    public Account(DateProvider dateProvider, Statements statements) {
+        this.dateProvider = dateProvider;
+        this.statements = statements;
+    }
+
+    public void deposit(double amount) {
+        Date date = dateProvider.currentDate();
+        Transaction transaction = new Transaction(date, amount);
+        double balance = amount;
+        statements.add(transaction, balance);
     }
 }
