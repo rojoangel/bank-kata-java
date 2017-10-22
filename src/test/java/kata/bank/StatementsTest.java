@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static org.mockito.Mockito.verify;
 
@@ -32,8 +31,7 @@ public class StatementsTest {
 
     @Test
     public void should_print_deposit() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate date = LocalDate.parse("01/04/2014", formatter);
+        LocalDate date = new DateParser().parse("01/04/2014");
 
         statements.add(new Transaction(date, 1000.00), 1000.00);
         statements.printTo(printer);

@@ -6,9 +6,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -19,8 +17,7 @@ public class TransactionTest {
 
     @Test
     public void printTo() throws Exception {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate date = LocalDate.parse("01/04/2014", formatter);
+        LocalDate date = new DateParser().parse("01/04/2014");
 
         Transaction transaction = new Transaction(date, 1000.00);
         transaction.printTo(printer, 1010.00);

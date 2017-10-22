@@ -3,13 +3,13 @@ package kata.bank;
 import cucumber.api.Transformer;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class DateMapper extends Transformer<LocalDate> {
 
+    private final DateParser dateParser = new DateParser();
+
     @Override
     public LocalDate transform(String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(date, formatter);
+        return dateParser.parse(date);
     }
 }
