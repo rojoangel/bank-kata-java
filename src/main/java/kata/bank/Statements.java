@@ -6,6 +6,6 @@ public class Statements {
     }
 
     public void printTo(Printer printer) {
-
+        printer.printLine("| DATE       | AMOUNT  | BALANCE |");
     }
 }
