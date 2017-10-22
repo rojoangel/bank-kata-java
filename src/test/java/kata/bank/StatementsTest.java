@@ -24,6 +24,6 @@ public class StatementsTest {
     @Test
     public void should_print_header() {
         statements.printTo(printer);
-        verify(printer).printLine("| DATE       | AMOUNT  | BALANCE |");
+        verify(printer).printLine(Statements.HEADER);
     }
 }
