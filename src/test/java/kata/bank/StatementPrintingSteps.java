@@ -28,8 +28,7 @@ public class StatementPrintingSteps {
 
     @Given("^withdraws (\\d+) on (.*?)$")
     public void withdraws_on(int amount, Date date) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        account.withdraw(amount);
     }
 
     @When("^he prints his bank statement$")

@@ -17,4 +17,11 @@ public class Account {
         double balance = amount;
         statements.add(transaction, balance);
     }
+
+    public void withdraw(double amount) {
+        Date date = dateProvider.currentDate();
+        Transaction transaction = new Transaction(date, amount);
+        double balance = -amount;
+        statements.add(transaction, balance);
+    }
 }

@@ -37,4 +37,16 @@ public class AccountTest {
 
         verify(statements).add(new Transaction(depositDate, amount), balance);
     }
+
+    @Test
+    public void should_add_withdraw_line() throws Exception {
+        double amount = 99.99;
+        double balance = -99.99;
+        Date depositDate = new Date();
+        when(dateProvider.currentDate()).thenReturn(depositDate);
+
+        account.withdraw(amount);
+
+        verify(statements).add(new Transaction(depositDate, amount), balance);
+    }
 }
