@@ -5,8 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.time.LocalDate;
-
+import static kata.bank.DateParser.date;
 import static kata.bank.TransactionBuilder.aTransaction;
 import static org.mockito.Mockito.verify;
 
@@ -18,11 +17,10 @@ public class StatementLineTest {
 
     @Test
     public void should_print_itself() throws Exception {
-        LocalDate date = new DateParser().parse("01/04/2014");
 
         StatementLine statementLine = new StatementLine(
                 aTransaction()
-                        .withDate(date)
+                        .withDate(date("01/04/2014"))
                         .withAmount(1000.00)
                         .build(),
                 1000.00
