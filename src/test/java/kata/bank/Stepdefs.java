@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 
 public class Stepdefs {
 
-    @Given("^a client deposits (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
+    @Given("^(?:a client )?deposits (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
     public void a_client_deposits_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
@@ -16,12 +16,6 @@ public class Stepdefs {
 
     @Given("^withdraws (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
     public void withdraws_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^deposits (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
-    public void deposits_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
