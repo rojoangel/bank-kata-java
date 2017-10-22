@@ -1,7 +1,7 @@
 package kata.bank;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public interface DateProvider {
-    Date currentDate();
+    LocalDate currentDate();
 }

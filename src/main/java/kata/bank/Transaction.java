@@ -1,13 +1,13 @@
 package kata.bank;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
 
-    private final Date depositDate;
+    private final LocalDate depositDate;
     private final double amount;
 
-    public Transaction(Date depositDate, double amount) {
+    public Transaction(LocalDate depositDate, double amount) {
         this.depositDate = depositDate;
         this.amount = amount;
     }

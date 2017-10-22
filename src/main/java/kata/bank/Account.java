@@ -1,6 +1,6 @@
 package kata.bank;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Account {
     private DateProvider dateProvider;
@@ -12,14 +12,14 @@ public class Account {
     }
 
     public void deposit(double amount) {
-        Date date = dateProvider.currentDate();
+        LocalDate date = dateProvider.currentDate();
         Transaction transaction = new Transaction(date, amount);
         double balance = amount;
         statements.add(transaction, balance);
     }
 
     public void withdraw(double amount) {
-        Date date = dateProvider.currentDate();
+        LocalDate date = dateProvider.currentDate();
         Transaction transaction = new Transaction(date, amount);
         double balance = -amount;
         statements.add(transaction, balance);

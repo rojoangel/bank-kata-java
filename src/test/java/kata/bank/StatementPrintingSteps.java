@@ -2,6 +2,7 @@ package kata.bank;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.Transform;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,7 +10,7 @@ import cucumber.api.java.en.When;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -34,13 +35,14 @@ public class StatementPrintingSteps {
     }
 
     @Given("^(?:a client )?deposits (\\d+) on (.*?)$")
-    public void a_client_deposits_on(int amount, Date date) throws Throwable {
+    public void a_client_deposits_on(int amount, @Transform(DateMapper.class) LocalDate date) throws Throwable {
         when(dateProvider.currentDate()).thenReturn(date);
         account.deposit(amount);
     }
 
     @Given("^withdraws (\\d+) on (.*?)$")
-    public void withdraws_on(int amount, Date date) throws Throwable {
+    public void withdraws_on(int amount, @Transform(DateMapper.class) LocalDate date) throws Throwable {
+        when(dateProvider.currentDate()).thenReturn(date);
         account.withdraw(amount);
     }
 

@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountTest {
@@ -32,7 +33,7 @@ public class AccountTest {
     public void should_add_deposit_line() throws Exception {
         double amount = 99.99;
         double balance = 99.99;
-        Date depositDate = new Date();
+        LocalDate depositDate = LocalDate.now();
         when(dateProvider.currentDate()).thenReturn(depositDate);
 
         account.deposit(amount);
@@ -44,7 +45,7 @@ public class AccountTest {
     public void should_add_withdraw_line() throws Exception {
         double amount = 99.99;
         double balance = -99.99;
-        Date depositDate = new Date();
+        LocalDate depositDate = LocalDate.now();
         when(dateProvider.currentDate()).thenReturn(depositDate);
 
         account.withdraw(amount);
