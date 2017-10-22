@@ -7,6 +7,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.util.Date;
+
 public class StatementPrintingSteps {
 
     private Account account;
@@ -16,14 +18,12 @@ public class StatementPrintingSteps {
         account = new Account();
     }
 
-    @Given("^(?:a client )?deposits (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
-    public void a_client_deposits_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Given("^(?:a client )?deposits (\\d+) on (.*?)$")
+    public void a_client_deposits_on(int amount, Date date) throws Throwable {
     }
 
-    @Given("^withdraws (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
-    public void withdraws_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
+    @Given("^withdraws (\\d+) on (.*?)$")
+    public void withdraws_on(int amount, Date date) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -35,7 +35,7 @@ public class StatementPrintingSteps {
     }
 
     @Then("^he sees$")
-    public void he_sees(DataTable arg1) throws Throwable {
+    public void he_sees(DataTable balance) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         // For automatic transformation, change DataTable to one of
         // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
