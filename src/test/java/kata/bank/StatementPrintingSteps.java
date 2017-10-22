@@ -20,6 +20,7 @@ public class StatementPrintingSteps {
 
     @Given("^(?:a client )?deposits (\\d+) on (.*?)$")
     public void a_client_deposits_on(int amount, Date date) throws Throwable {
+        account.deposit(amount, date);
     }
 
     @Given("^withdraws (\\d+) on (.*?)$")
