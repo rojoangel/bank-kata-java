@@ -8,6 +8,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
 
+import static kata.bank.TransactionBuilder.aTransaction;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -31,26 +32,34 @@ public class AccountTest {
 
     @Test
     public void should_add_deposit_line() throws Exception {
-        double amount = 99.99;
-        double balance = 99.99;
         LocalDate depositDate = LocalDate.now();
         when(dateProvider.currentDate()).thenReturn(depositDate);
 
-        account.deposit(amount);
+        account.deposit(99.99);
 
-        verify(statements).add(new Transaction(depositDate, amount), balance);
+        verify(statements).add(
+                aTransaction()
+                        .withDate(depositDate)
+                        .withAmount(99.99)
+                        .build(),
+                99.99
+        );
     }
 
     @Test
     public void should_add_withdraw_line() throws Exception {
-        double amount = 99.99;
-        double balance = -99.99;
         LocalDate depositDate = LocalDate.now();
         when(dateProvider.currentDate()).thenReturn(depositDate);
 
-        account.withdraw(amount);
+        account.withdraw(99.99);
 
-        verify(statements).add(new Transaction(depositDate, amount), balance);
+        verify(statements).add(
+                aTransaction()
+                        .withDate(depositDate)
+                        .withAmount(99.99)
+                        .build(),
+                -99.99
+        );
     }
 
     @Test
