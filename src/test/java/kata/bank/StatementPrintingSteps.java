@@ -2,11 +2,19 @@ package kata.bank;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class StatementPrintingSteps {
+
+    private Account account;
+
+    @Before
+    public void create_account() {
+        account = new Account();
+    }
 
     @Given("^(?:a client )?deposits (\\d+) on (\\d+)/(\\d+)/(\\d+)$")
     public void a_client_deposits_on(int arg1, int arg2, int arg3, int arg4) throws Throwable {
