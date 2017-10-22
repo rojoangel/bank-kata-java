@@ -24,4 +24,8 @@ public class Account {
         double balance = -amount;
         statements.add(transaction, balance);
     }
+
+    public void printStatements(Printer printer) {
+        statements.printTo(printer);
+    }
 }

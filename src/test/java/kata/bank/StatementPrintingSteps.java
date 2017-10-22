@@ -6,12 +6,15 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.mockito.Mock;
 
 import java.util.Date;
 
 public class StatementPrintingSteps {
 
     private Account account;
+    @Mock
+    private Printer printer;
 
     @Before
     public void create_account() {
@@ -33,8 +36,7 @@ public class StatementPrintingSteps {
 
     @When("^he prints his bank statement$")
     public void he_prints_his_bank_statement() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        account.printStatements(printer);
     }
 
     @Then("^he sees$")

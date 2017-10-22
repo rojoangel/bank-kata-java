@@ -20,6 +20,7 @@ public class AccountTest {
     @Mock
     private Statements statements;
 
+    @Mock Printer printer;
 
     @Before
     public void init() {
@@ -49,4 +50,11 @@ public class AccountTest {
 
         verify(statements).add(new Transaction(depositDate, amount), balance);
     }
+
+    @Test
+    public void should_printStatements() throws Exception {
+        account.printStatements(printer);
+        verify(statements).printTo(printer);
+    }
+
 }
