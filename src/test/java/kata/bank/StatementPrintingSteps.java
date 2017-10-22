@@ -8,6 +8,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
@@ -52,11 +54,10 @@ public class StatementPrintingSteps {
     }
 
     @Then("^he sees$")
-    public void he_sees(DataTable balance) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
-        // E,K,V must be a scalar (String, Integer, Date, enum etc)
-        throw new PendingException();
+    public void he_sees(DataTable statements) throws Throwable {
+        InOrder inOrder = Mockito.inOrder(printer);
+        for (String statement : statements.asList(String.class)) {
+            inOrder.verify(printer).printLine(statement);
+        }
     }
 }
