@@ -6,26 +6,36 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.mockito.Mock;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Date;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
 public class StatementPrintingSteps {
 
     private Account account;
-    @Mock
+
+    private DateProvider dateProvider;
+
     private Printer printer;
 
     @Before
     public void create_account() {
+        dateProvider = mock(DateProvider.class);
+        printer = mock(Printer.class);
         account = new Account(
-                new DateProvider(),
+                dateProvider,
                 new Statements()
         );
     }
 
     @Given("^(?:a client )?deposits (\\d+) on (.*?)$")
     public void a_client_deposits_on(int amount, Date date) throws Throwable {
+        when(dateProvider.currentDate()).thenReturn(date);
         account.deposit(amount);
     }
 
