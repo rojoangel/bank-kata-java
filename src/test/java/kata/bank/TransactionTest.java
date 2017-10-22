@@ -16,7 +16,7 @@ public class TransactionTest {
     private Printer printer;
 
     @Test
-    public void printTo() throws Exception {
+    public void should_print_itself() throws Exception {
         LocalDate date = new DateParser().parse("01/04/2014");
 
         Transaction transaction = new Transaction(date, 1000.00);
