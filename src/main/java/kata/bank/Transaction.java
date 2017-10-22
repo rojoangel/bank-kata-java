@@ -1,6 +1,9 @@
 package kata.bank;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
 
@@ -10,6 +13,20 @@ public class Transaction {
     public Transaction(LocalDate depositDate, double amount) {
         this.depositDate = depositDate;
         this.amount = amount;
+    }
+
+    public void printTo(Printer printer, double balance) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        NumberFormat amountFormatter = new DecimalFormat("#0.00");
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(dateFormatter.format(depositDate));
+        builder.append(" | ");
+        builder.append(amountFormatter.format(amount));
+        builder.append(" | ");
+        builder.append(amountFormatter.format(balance));
+
+        printer.printLine(builder.toString());
     }
 
     @Override
