@@ -14,8 +14,7 @@ public class Account {
     public void deposit(double amount) {
         LocalDate date = dateProvider.currentDate();
         Transaction transaction = new Transaction(date, amount);
-        double balance = amount;
-        statements.add(transaction, balance);
+        statements.add(transaction, statements.currentBalance() + amount);
     }
 
     public void withdraw(double amount) {
