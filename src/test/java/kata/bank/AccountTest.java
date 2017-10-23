@@ -56,7 +56,7 @@ public class AccountTest {
         verify(statements).add(
                 aTransaction()
                         .withDate(depositDate)
-                        .withAmount(99.99)
+                        .withAmount(-99.99)
                         .build(),
                 -99.99
         );
