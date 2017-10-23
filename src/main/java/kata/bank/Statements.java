@@ -28,4 +28,11 @@ public class Statements {
     private void printHeader(Printer printer) {
         printer.printLine(HEADER);
     }
+
+    public double currentBalance() {
+        if (statementLines.isEmpty()) {
+            return 0.00;
+        }
+        return statementLines.get(0).getBalance();
+    }
 }
