@@ -1,4 +1,6 @@
-package kata.bank;
+package kata.bank.account;
+
+import kata.bank.Printer;
 
 public class StatementLine {
     private final Transaction transaction;

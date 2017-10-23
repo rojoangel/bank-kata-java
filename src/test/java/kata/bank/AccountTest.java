@@ -1,5 +1,6 @@
 package kata.bank;
 
+import kata.bank.account.Statements;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
 
-import static kata.bank.TransactionBuilder.aTransaction;
+import static kata.bank.account.TransactionBuilder.aTransaction;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

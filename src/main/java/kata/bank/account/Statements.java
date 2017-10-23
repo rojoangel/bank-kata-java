@@ -1,4 +1,6 @@
-package kata.bank;
+package kata.bank.account;
+
+import kata.bank.Printer;
 
 import java.util.LinkedList;
 import java.util.List;

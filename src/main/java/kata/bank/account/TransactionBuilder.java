@@ -1,4 +1,4 @@
-package kata.bank;
+package kata.bank.account;
 
 import java.time.LocalDate;
 

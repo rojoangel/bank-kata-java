@@ -1,5 +1,8 @@
 package kata.bank;
 
+import kata.bank.account.Statements;
+import kata.bank.account.Transaction;
+
 import java.time.LocalDate;
 
 public class Account {

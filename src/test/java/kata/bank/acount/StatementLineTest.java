@@ -1,12 +1,14 @@
-package kata.bank;
+package kata.bank.acount;
 
+import kata.bank.Printer;
+import kata.bank.account.StatementLine;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static kata.bank.DateParser.date;
-import static kata.bank.TransactionBuilder.aTransaction;
+import static kata.bank.account.TransactionBuilder.aTransaction;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
