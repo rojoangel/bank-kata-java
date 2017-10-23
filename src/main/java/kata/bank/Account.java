@@ -19,10 +19,7 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-        LocalDate date = dateProvider.currentDate();
-        Transaction transaction = new Transaction(date, -amount);
-        double balance = -amount;
-        statements.add(transaction, balance);
+        deposit(-amount);
     }
 
     public void printStatements(Printer printer) {
